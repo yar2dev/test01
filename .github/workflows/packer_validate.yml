@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-18.04]
-        node: [10, 12, 14]
         packerfile:
           - app.json
           - db.json
