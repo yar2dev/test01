@@ -20,8 +20,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: packer validate -var-file=packer/variables.json.example packer/${{ matrix.packerfile }}
-      - run: |
-          npm run build
-          npm test
+
 
 
