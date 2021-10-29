@@ -1,22 +1,25 @@
----
-name: Packer
+name: Тестирование
+
 on:
   push:
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
 
 jobs:
-  packer:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        packerfile:
-          - app.json
-          - db.json
-          - immutable.json
-          - ubuntu16.json
-
-
+        os: [ubuntu-18.04, ubuntu-20.04]
+        node: [10, 12, 14]
     steps:
-      uses: actions/checkout@v2
-      run: |
-          packer validate -var-file=packer/variables.json.example packer/${{ matrix.packerfile }}
+      - uses: actions/checkout@v2
+      - name: Использование Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: |
+          npm run build
+          npm test
