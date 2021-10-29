@@ -13,6 +13,11 @@ jobs:
       matrix:
         os: [ubuntu-18.04]
         node: [10, 12, 14]
+        packerfile:
+          - app.json
+          - db.json
+          - immutable.json
+          - ubuntu16.json
     steps:
       - uses: actions/checkout@v2
       - name: Использование Node.js ${{ matrix.node-version }}
