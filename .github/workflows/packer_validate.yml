@@ -1,4 +1,4 @@
-name: Тестирование
+name: Packer
 
 on:
   push:
@@ -8,18 +8,23 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-18.04, ubuntu-20.04]
+        packerfile:
+          - app.json
+          - db.json
+          - immutable.json
+          - ubuntu16.json
+        
         node: [10, 12, 14]
     steps:
       - uses: actions/checkout@v2
-      - name: Использование Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
+      - name: Использование Node.js
+
       - run: npm ci
       - run: |
           npm run build
           npm test
+
+
