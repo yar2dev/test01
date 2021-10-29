@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  Packer:
     runs-on: ubuntu-latest
     strategy:
       matrix:
