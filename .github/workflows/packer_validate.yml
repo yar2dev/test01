@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
+      - run: packer validate -var-file=packer/variables.json.example packer/${{ matrix.packerfile }}
       - run: |
           npm run build
           npm test
