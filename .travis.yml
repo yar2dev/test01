@@ -1,7 +1,10 @@
+---
+sudo: required
 language: python
-python:
-  - "3.6"
+services:
+  - docker
 install:
-  - pip install -r requirements.txt
+  - python3 -m pip install molecule
+  # - python3 -m pip install required driver (e.g. docker, shade, boto, apache-libcloud)
 script:
-  - flake8 .
+  - molecule test
