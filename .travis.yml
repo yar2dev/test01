@@ -5,6 +5,8 @@ services:
   - docker
 install:
   - python3 -m pip install molecule
+  - python3 -m pip install molecule-vagrant
+  
   # - python3 -m pip install required driver (e.g. docker, shade, boto, apache-libcloud)
 script:
   - molecule test
