@@ -1,5 +1,4 @@
 import pandas as pd
-pd.options.mode.chained_assignment = None
 import numpy as np
 import datetime
 
@@ -11,8 +10,7 @@ import urllib.request
 import io
 import smtplib
 import sys
+pd.options.mode.chained_assignment = None
 
-
-text_set1 = set ()
-text_set2 = set ()
-
+text_set1 = set()
+text_set2 = set()
