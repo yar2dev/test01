@@ -12,6 +12,7 @@ import io
 import smtplib
 import sys
 
+
 text_set1 = set ()
 text_set2 = set ()
 
