@@ -2,4 +2,3 @@ pandas
 numpy
 yfinance
 flake8
-pytest
